@@ -1,11 +1,12 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #f5f5f5;
+  background-color: #1c1c1c; /* Fondo oscuro */
+  color: #fff; /* Texto en color blanco */
 }
 
 h1 {
-  color: #333;
+  color: #fff; /* Título en color blanco */
 }
 
 #searchInput {
@@ -14,21 +15,26 @@ h1 {
   font-size: 16px;
   margin: 20px auto;
   display: block;
+  background-color: #333; /* Color de fondo más oscuro */
+  border: none;
+  color: #fff; /* Texto en color blanco */
 }
 
 #movieInfo {
   width: 300px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #333; /* Color de fondo más oscuro */
+  border: 1px solid #555; /* Borde más oscuro */
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra con un tono claro */
   text-align: left;
+  color: #fff; /* Texto en color blanco */
 }
 
 #title,
 #year,
 #plot {
   margin: 10px;
+  color: #fff; /* Texto en color blanco */
 }
