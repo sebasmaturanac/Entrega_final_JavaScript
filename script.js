@@ -1,10 +1,21 @@
 const searchInput = document.getElementById('searchInput');
 const resultContainer = document.getElementById('resultContainer');
 
+// Intenta cargar la última búsqueda al cargar la página
+window.onload = function() {
+  const lastSearch = localStorage.getItem('lastSearch');
+  if (lastSearch) {
+    searchMovies(lastSearch);
+    searchInput.value = lastSearch;
+  }
+};
+
 searchInput.addEventListener('keyup', (event) => {
   if (event.key === 'Enter') {
     const searchQuery = searchInput.value;
     if (searchQuery) {
+      // Almacena la búsqueda actual en localStorage
+      localStorage.setItem('lastSearch', searchQuery);
       searchMovies(searchQuery);
       searchInput.value = '';
     }
@@ -24,10 +35,9 @@ function searchMovies(searchQuery) {
     })
     .then((data) => {
       if (data.Response === 'True') {
-        const movies = data.Search; // Array de películas
+        const movies = data.Search;
 
         if (movies && movies.length > 0) {
-          // Muestra una lista de películas coincidentes
           const movieList = document.createElement('ul');
           movies.forEach((movie) => {
             const movieItem = document.createElement('li');
@@ -53,7 +63,7 @@ function searchMovies(searchQuery) {
 }
 
 function getMovieDetails(imdbID) {
-  const apiKey = '1983df27'; // API KEY de OMDb
+  const apiKey = '1983df27';
   const apiUrl = `https://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}`;
 
   fetch(apiUrl)
@@ -91,3 +101,4 @@ function openPopup(title, content) {
 function showAlert(message) {
   alert(message);
 }
+
